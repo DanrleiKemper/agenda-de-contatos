@@ -5,13 +5,31 @@ def adicionar_contato(contatos, nome_contato, telefone_contato, email_contato):
     #print(f"Contato: {nome_contato} {telefone_contato} {email_contato} foi adicionado com sucesso!")
     print("Contato foi adicionado com sucesso!")
     return
+
 #função para visualizar contato adicionado
-def vizualizar_contato(contatos):
+def visualizar_contato(contatos):
     print("\nLista de Contatos adicionados")
 
-    # start=1 = usado para ocmeção a exibir as tarefas no indice 1 e não zero
+    # start=1 = usado para começão a exibir as tarefas no indice 1 e não zero
     for i, contato in enumerate(contatos, start=1):
-        print(f"{i} - Nome: {nome_contato} | Telefone: {telefone_contato} | E-mail: {email_contato}")
+        print(f"{i} - Nome: {contato['Nome']} | Telefone: {contato['Telefone']} | E-mail: {contato['E-mail']}")
+    return
+
+#função para atualizar um contato
+def editar_contato(contatos, indice_contato, nome_contato, telefone_contato, email_contato):
+    '''
+        Condição para validar a alteração do contato. 
+        Se o usuário informar o indice correto, programa faz a execução
+        Caso contrário, programa para a execução (cai no else)
+    '''
+    if indice_contato >= 0 and indice_contato < len(contatos):
+        contatos[indice_contato]["Nome"] = nome_contato
+        contatos[indice_contato]["Telefone"] = telefone_contato
+        contatos[indice_contato]["E-mail"] = email_contato
+        print("Contato editado com sucesso!")
+    else:
+        print("Índice de contato inválido!")
+
 
 #Variavel para armazenar os contatos / criação de uma lista
 contatos = []
@@ -37,8 +55,18 @@ while True:
         telefone_contato = input("Telefone: ")
         email_contato = input("E-mail: ")
         adicionar_contato(contatos, nome_contato, telefone_contato, email_contato)
+
     elif escolha == "2":
         vizualizar_contato(contatos)
+
+    elif escolha == "3":
+        vizualizar_contato(contatos)
+        indice_contato = int(input("Informe o idice do contato que deseja editar: ")) -1
+        nome_contato = input("Novo nome: ")
+        telefone_contato  = input("Novo telefone: ")
+        email_contato  = input("Novo e-mail: ")
+        editar_contato(contatos, indice_contato, nome_contato, telefone_contato, email_contato)
+
 
     elif escolha == "8":
         print("PROGRAMA FINALIZADO!")
