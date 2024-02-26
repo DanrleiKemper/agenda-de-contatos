@@ -1,5 +1,5 @@
-Desafio da formação em Python pela Rockseat 
-Projeto em desenvolvimento utilizando os conhecimentos adquiridos durante os fundamentos iniciais em programação Python
+Desafio do módulo basico da formação em Python pela Rockseat 
+Projeto em desenvolvimento utilizando os conhecimentos adquiridos durante os fundamentos iniciais em programação da linguagem Python
 
 A aplicação conciste nas seguinte funções:
 
